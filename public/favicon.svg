@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#242321"/>
+  <!-- Elegant stylised E with arch crown -->
+  <path d="M 18 16 L 46 16 C 46 16, 44 23, 38 23 L 26 23 L 26 29 L 40 29 C 40 29, 39 35, 34 35 L 26 35 L 26 41 L 46 41 C 46 41, 44 48, 38 48 L 18 48 Z" fill="#E9E0D5" />
+  <circle cx="47" cy="18" r="3" fill="#747B61" />
+</svg>
