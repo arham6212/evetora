@@ -24,7 +24,7 @@ export const BookingConfirmationModal: React.FC<BookingConfirmationModalProps> =
           particleCount: 40,
           spread: 60,
           origin: { y: 0.6 },
-          colors: ['#0F766E', '#EA580C', '#F59E0B', '#16A34A'],
+          colors: ['#059669', '#10B981', '#F59E0B', '#3B82F6'],
         });
       } catch {
         // fallback
@@ -38,104 +38,104 @@ export const BookingConfirmationModal: React.FC<BookingConfirmationModalProps> =
     window.print();
   };
 
-  const whatsappText = `Namaste! I submitted a rental inquiry on Eventora.\nReference Code: *#${inquiry.referenceCode}*\nName: ${inquiry.customerName}\nItems: ${inquiry.totals.totalQuantity} items (${formatPrice(inquiry.totals.estimatedTotal)})\nDates: ${formatDateDisplay(inquiry.eventDate)} to ${formatDateDisplay(inquiry.endDate)}\nAddress: ${inquiry.eventLocation}\nPlease confirm availability.`;
+  const whatsappText = `Namaste! I submitted a rental inquiry on Evento.\nReference Code: *#${inquiry.referenceCode}*\nName: ${inquiry.customerName}\nItems: ${inquiry.totals.totalQuantity} items (${formatPrice(inquiry.totals.estimatedTotal)})\nDates: ${formatDateDisplay(inquiry.eventDate)} to ${formatDateDisplay(inquiry.endDate)}\nAddress: ${inquiry.eventLocation}\nPlease confirm availability.`;
   const whatsappUrl = `https://wa.me/${siteConfig.whatsapp.number.replace(/\D/g, '')}?text=${encodeURIComponent(whatsappText)}`;
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} maxWidth="xl">
       <div className="space-y-5 print:m-0">
         {/* Header */}
-        <div className="text-center space-y-1.5 pb-3 border-b border-brand-sand">
-          <div className="w-12 h-12 mx-auto bg-green-100 text-green-700 rounded-full flex items-center justify-center">
-            <CheckCircle2 className="w-6 h-6" />
+        <div className="text-center space-y-1.5 pb-4 border-b border-slate-100">
+          <div className="w-14 h-14 mx-auto bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center shadow-xs">
+            <CheckCircle2 className="w-7 h-7" />
           </div>
-          <span className="text-xs uppercase tracking-wider text-green-700 font-bold block">
+          <span className="text-xs uppercase tracking-wider text-emerald-700 font-bold block">
             Rental Inquiry Received
           </span>
-          <h2 className="text-2xl font-bold text-brand-charcoal">
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
             Inquiry Ref #{inquiry.referenceCode}
           </h2>
-          <p className="text-xs text-brand-charcoal/70">
+          <p className="text-xs text-slate-500">
             Thank you, {inquiry.customerName}! Your rental request has been simulated and saved.
           </p>
         </div>
 
         {/* Demo Notice */}
-        <div className="p-3 bg-brand-yellow-soft border border-amber-300 rounded-md text-xs text-amber-900 flex items-start gap-2">
-          <AlertCircle className="w-4 h-4 text-amber-800 shrink-0 mt-0.5" />
+        <div className="p-3.5 bg-amber-50 border border-amber-200 rounded-2xl text-xs text-amber-900 flex items-start gap-2.5">
+          <AlertCircle className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
           <div>
-            <strong>Demonstration Mode:</strong> No real payment was charged and no live booking was dispatched. In production, the local provider in your city would call or WhatsApp you within 2 hours to confirm vehicle dispatch.
+            <strong className="font-bold">Demonstration Mode:</strong> No real payment was charged and no live vehicle was dispatched. In actual service, the local provider in your city would call or WhatsApp you within 2 hours to confirm vehicle dispatch and setup time.
           </div>
         </div>
 
         {/* Details Card */}
-        <div className="p-3.5 bg-brand-sand-light rounded-md border border-brand-sand text-xs space-y-2">
-          <div className="flex items-start gap-2 text-brand-charcoal">
-            <Calendar className="w-4 h-4 text-brand-primary shrink-0 mt-0.5" />
+        <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-xs space-y-2">
+          <div className="flex items-start gap-2 text-slate-800">
+            <Calendar className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
             <div>
-              <strong>Event Dates:</strong>{' '}
+              <strong className="font-bold text-slate-900">Event Dates:</strong>{' '}
               {formatDateDisplay(inquiry.eventDate)} → {formatDateDisplay(inquiry.endDate)} ({inquiry.eventType.toUpperCase()})
             </div>
           </div>
-          <div className="flex items-start gap-2 text-brand-charcoal">
-            <MapPin className="w-4 h-4 text-brand-primary shrink-0 mt-0.5" />
+          <div className="flex items-start gap-2 text-slate-800">
+            <MapPin className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
             <div>
-              <strong>Delivery Venue:</strong> {inquiry.eventLocation}
+              <strong className="font-bold text-slate-900">Delivery Venue:</strong> {inquiry.eventLocation}
             </div>
           </div>
         </div>
 
         {/* Items Summary */}
         <div className="space-y-1.5">
-          <span className="text-xs font-bold text-brand-charcoal block">
+          <span className="text-xs font-bold text-slate-700 block">
             Requested Items ({inquiry.totals.totalQuantity}):
           </span>
-          <div className="border border-brand-sand divide-y divide-brand-sand rounded-md max-h-40 overflow-y-auto">
+          <div className="border border-slate-200 divide-y divide-slate-100 rounded-2xl max-h-40 overflow-y-auto">
             {inquiry.items.map((item) => (
-              <div key={item.id} className="p-2 text-xs flex justify-between items-center bg-white">
+              <div key={item.id} className="p-2.5 text-xs flex justify-between items-center bg-white">
                 <div className="flex items-center gap-2">
-                  <Package className="w-3.5 h-3.5 text-brand-primary" />
-                  <span>
-                    <strong>{item.quantity}x</strong> {item.product.name}
+                  <Package className="w-3.5 h-3.5 text-emerald-600" />
+                  <span className="text-slate-800">
+                    <strong className="font-bold text-slate-900">{item.quantity}x</strong> {item.product.name}
                   </span>
                 </div>
-                <span className="font-bold text-brand-charcoal">{formatPrice(item.subtotal)}</span>
+                <span className="font-bold text-slate-900">{formatPrice(item.subtotal)}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Estimated Amount */}
-        <div className="p-3 bg-brand-primary-soft border border-brand-primary/30 rounded-md flex justify-between items-center">
-          <span className="text-xs font-bold text-brand-primary">Estimated Rental Total:</span>
-          <span className="text-xl font-bold text-brand-primary">
+        <div className="p-4 bg-emerald-50/80 border border-emerald-200 rounded-2xl flex justify-between items-center">
+          <span className="text-xs font-bold text-emerald-900">Estimated Rental Total:</span>
+          <span className="text-2xl font-black text-emerald-700">
             {formatPrice(inquiry.totals.estimatedTotal)}
           </span>
         </div>
 
         {/* Actions */}
-        <div className="space-y-2 pt-1 print:hidden">
+        <div className="space-y-2.5 pt-1 print:hidden">
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-2.5 px-3 bg-green-600 hover:bg-green-700 text-white font-bold text-xs rounded-md flex items-center justify-center gap-2 transition-colors"
+            className="w-full py-3 px-4 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2 transition-colors shadow-xs"
           >
-            <MessageCircle className="w-4 h-4" />
+            <MessageCircle className="w-4 h-4 text-slate-950" />
             <span>Send Details to Provider on WhatsApp</span>
           </a>
 
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 gap-2.5">
             <button
               onClick={handlePrint}
-              className="py-2 px-3 border border-brand-sand hover:bg-brand-sand-light text-brand-charcoal text-xs font-semibold rounded-md flex items-center justify-center gap-1.5"
+              className="py-2.5 px-3 border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 transition-colors"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Print / Save</span>
             </button>
             <button
               onClick={onClose}
-              className="py-2 px-3 bg-brand-primary text-white text-xs font-bold rounded-md hover:bg-brand-primary-dark"
+              className="py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition-colors shadow-sm"
             >
               Done & Return
             </button>

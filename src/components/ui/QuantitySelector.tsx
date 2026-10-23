@@ -55,18 +55,18 @@ export const QuantitySelector: React.FC<QuantitySelectorProps> = ({
   const isSm = size === 'sm';
 
   return (
-    <div className="space-y-1.5">
-      <div className="inline-flex items-center border border-brand-sand bg-white rounded-md overflow-hidden select-none shadow-xs">
+    <div className="space-y-2">
+      <div className="inline-flex items-center border border-slate-200 bg-white rounded-xl overflow-hidden select-none shadow-2xs">
         <button
           type="button"
           onClick={handleDecrement}
           disabled={value <= min}
-          className={`text-brand-charcoal hover:bg-brand-sand-light active:bg-brand-sand disabled:opacity-30 transition-colors flex items-center justify-center font-bold ${
-            isSm ? 'w-7 h-7' : 'w-9 h-9'
+          className={`text-slate-700 hover:bg-slate-100 active:bg-slate-200 disabled:opacity-30 transition-colors flex items-center justify-center font-bold ${
+            isSm ? 'w-8 h-8' : 'w-10 h-10'
           }`}
           aria-label="Decrease quantity"
         >
-          <Minus className={isSm ? 'w-3 h-3' : 'w-3.5 h-3.5'} />
+          <Minus className={isSm ? 'w-3.5 h-3.5' : 'w-4 h-4'} />
         </button>
 
         <input
@@ -76,8 +76,8 @@ export const QuantitySelector: React.FC<QuantitySelectorProps> = ({
           onBlur={handleBlur}
           min={min}
           max={max}
-          className={`text-center font-bold text-brand-charcoal focus:outline-none bg-transparent [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${
-            isSm ? 'w-12 text-xs py-1' : 'w-16 text-sm py-1.5'
+          className={`text-center font-black text-slate-900 focus:outline-none bg-transparent [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${
+            isSm ? 'w-12 text-xs py-1' : 'w-16 text-sm py-2'
           }`}
           aria-label="Quantity"
         />
@@ -86,30 +86,30 @@ export const QuantitySelector: React.FC<QuantitySelectorProps> = ({
           type="button"
           onClick={handleIncrement}
           disabled={value >= max}
-          className={`text-brand-charcoal hover:bg-brand-sand-light active:bg-brand-sand disabled:opacity-30 transition-colors flex items-center justify-center font-bold ${
-            isSm ? 'w-7 h-7' : 'w-9 h-9'
+          className={`text-slate-700 hover:bg-slate-100 active:bg-slate-200 disabled:opacity-30 transition-colors flex items-center justify-center font-bold ${
+            isSm ? 'w-8 h-8' : 'w-10 h-10'
           }`}
           aria-label="Increase quantity"
         >
-          <Plus className={isSm ? 'w-3 h-3' : 'w-3.5 h-3.5'} />
+          <Plus className={isSm ? 'w-3.5 h-3.5' : 'w-4 h-4'} />
         </button>
       </div>
 
       {bulkOptions && bulkOptions.length > 0 && (
-        <div className="flex flex-wrap gap-1 items-center">
-          <span className="text-[10px] text-brand-taupe font-medium mr-1">Quick Qty:</span>
+        <div className="flex flex-wrap gap-1.5 items-center">
+          <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mr-1">Quick:</span>
           {bulkOptions.map((opt) => (
             <button
               key={opt}
               type="button"
               onClick={() => onChange(opt)}
-              className={`text-[11px] px-2 py-0.5 rounded-xs border transition-colors font-medium ${
+              className={`text-xs px-2.5 py-1 rounded-lg border transition-all font-bold ${
                 value === opt
-                  ? 'bg-brand-primary text-white border-brand-primary'
-                  : 'bg-white hover:bg-brand-sand-light text-brand-charcoal border-brand-sand'
+                  ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs'
+                  : 'bg-white hover:bg-slate-50 text-slate-700 border-slate-200'
               }`}
             >
-              {opt}
+              +{opt}
             </button>
           ))}
         </div>

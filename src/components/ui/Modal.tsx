@@ -47,20 +47,20 @@ export const Modal: React.FC<ModalProps> = ({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-brand-charcoal/60 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-slate-950/60 backdrop-blur-xs transition-opacity duration-300"
         onClick={onClose}
         aria-hidden="true"
       />
 
       {/* Dialog Card */}
       <div
-        className={`relative w-full ${maxWidths[maxWidth]} bg-brand-ivory border border-brand-sand rounded-xs shadow-floating p-6 sm:p-8 z-10 my-8 transition-all animate-in fade-in zoom-in-95 duration-200`}
+        className={`relative w-full ${maxWidths[maxWidth]} bg-white border border-slate-200 rounded-3xl shadow-2xl p-6 sm:p-8 z-10 my-8 transition-all animate-in fade-in zoom-in-95 duration-200`}
         role="dialog"
         aria-modal="true"
       >
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 text-brand-charcoal/60 hover:text-brand-charcoal hover:bg-brand-sand/40 rounded-full transition-colors focus:outline-none"
+          className="absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-800 hover:bg-slate-100 rounded-full transition-colors focus:outline-none"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -69,19 +69,19 @@ export const Modal: React.FC<ModalProps> = ({
         {(title || subtitle) && (
           <div className="mb-6 pr-8">
             {subtitle && (
-              <span className="text-[11px] font-medium tracking-widest text-brand-olive uppercase block mb-1">
+              <span className="text-xs font-bold tracking-wider text-emerald-700 uppercase block mb-1">
                 {subtitle}
               </span>
             )}
             {title && (
-              <h2 className="font-serif text-2xl sm:text-3xl font-medium text-brand-charcoal">
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
                 {title}
               </h2>
             )}
           </div>
         )}
 
-        <div className="text-brand-charcoal/90">{children}</div>
+        <div className="text-slate-700">{children}</div>
       </div>
     </div>
   );

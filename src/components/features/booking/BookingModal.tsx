@@ -89,7 +89,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       const inquiry: BookingInquiry = {
         referenceCode: randomCode,
         customerName: formData.customerName,
-        email: formData.email || `${formData.phone}@eventora-demo.in`,
+        email: formData.email || `${formData.phone}@evento-demo.in`,
         phone: formData.phone,
         eventType: formData.eventType,
         eventDate: formData.startDate,
@@ -130,16 +130,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     >
       <div className="space-y-5">
         {/* Quick WhatsApp option banner */}
-        <div className="p-3 bg-green-50 border border-green-200 rounded-lg flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-          <div className="flex items-center gap-2 text-green-900 font-medium">
-            <MessageCircle className="w-5 h-5 text-green-600 shrink-0" />
+        <div className="p-3.5 bg-emerald-50 border border-emerald-200 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-2 text-emerald-950 font-semibold">
+            <MessageCircle className="w-5 h-5 text-emerald-600 shrink-0" />
             <span>Prefer WhatsApp? Send your inquiry directly with 1 click:</span>
           </div>
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3.5 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded font-bold shrink-0 shadow-xs"
+            className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold shrink-0 shadow-xs transition-colors"
           >
             Chat on WhatsApp
           </a>
@@ -228,7 +228,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           </div>
 
           {/* Setup Service Checkbox */}
-          <div className="p-3 bg-brand-sand-light border border-brand-sand rounded-md flex items-start gap-2.5">
+          <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-2xl flex items-start gap-3">
             <input
               type="checkbox"
               id="setupRequested"
@@ -236,19 +236,19 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               onChange={(e) =>
                 setFormData({ ...formData, setupRequested: e.target.checked })
               }
-              className="mt-0.5 w-4 h-4 text-brand-primary rounded"
+              className="mt-1 w-4 h-4 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500"
             />
-            <label htmlFor="setupRequested" className="text-xs text-brand-charcoal cursor-pointer">
-              <strong className="block font-semibold">Include Tent & Chair Setup Assistance</strong>
-              <span className="text-brand-taupe">
+            <label htmlFor="setupRequested" className="text-xs text-slate-800 cursor-pointer">
+              <strong className="block font-bold text-slate-900">Include Tent & Chair Setup Assistance</strong>
+              <span className="text-slate-500">
                 Local crew will unload chairs, set up shamiana tent, and arrange dining tables.
               </span>
             </label>
           </div>
 
           {/* Special Notes */}
-          <div className="space-y-1">
-            <label className="text-xs font-semibold text-brand-charcoal/80 block">
+          <div className="space-y-1.5">
+            <label className="text-xs font-bold text-slate-700 block">
               Any Special Instructions? (Optional)
             </label>
             <textarea
@@ -256,17 +256,17 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               placeholder="e.g. Delivery needed by 11:00 AM on event day; second floor staircase..."
               value={formData.notes}
               onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-              className="w-full px-3 py-2 text-xs bg-white border border-brand-sand rounded-md text-brand-charcoal focus:outline-none focus:border-brand-primary"
+              className="w-full px-3.5 py-2 text-xs bg-white border border-slate-200 rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 shadow-2xs"
             />
           </div>
 
           {/* Submit Actions */}
-          <div className="pt-3 border-t border-brand-sand flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="text-xs text-brand-charcoal/80">
-              <span className="font-bold text-brand-charcoal text-sm block">
+          <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="text-xs text-slate-600">
+              <span className="font-black text-slate-900 text-sm block">
                 Estimated Total: {formatPrice(totals.estimatedTotal)}
               </span>
-              <span className="text-[10px] text-brand-taupe">
+              <span className="text-[10px] text-slate-400">
                 ({totals.totalQuantity} items • delivery confirmed by provider)
               </span>
             </div>
@@ -286,7 +286,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 variant="primary"
                 size="md"
                 disabled={isSubmitting || items.length === 0}
-                className="bg-brand-primary hover:bg-brand-primary-dark font-bold"
+                className="bg-emerald-600 hover:bg-emerald-700 font-bold shadow-md shadow-emerald-600/20"
               >
                 {isSubmitting ? 'Submitting...' : 'Submit Rental Inquiry'}
               </Button>

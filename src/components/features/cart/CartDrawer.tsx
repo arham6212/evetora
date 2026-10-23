@@ -32,8 +32,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onProceedToInquiry }) =>
         items.length > 0 ? (
           <div className="space-y-3">
             <div className="flex justify-between items-baseline text-sm">
-              <span className="font-semibold text-brand-charcoal">Estimated Subtotal:</span>
-              <span className="text-lg font-bold text-brand-charcoal">
+              <span className="font-semibold text-slate-600">Estimated Subtotal:</span>
+              <span className="text-xl font-black text-slate-900">
                 {formatPrice(totals.estimatedTotal)}
               </span>
             </div>
@@ -44,9 +44,9 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onProceedToInquiry }) =>
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeCart}
-                className="w-full py-2.5 px-3 bg-green-600 hover:bg-green-700 text-white text-xs font-bold rounded-md flex items-center justify-center gap-2 transition-colors"
+                className="w-full py-3 px-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 text-xs sm:text-sm font-black rounded-xl flex items-center justify-center gap-2 transition-colors shadow-xs"
               >
-                <MessageCircle className="w-4 h-4" />
+                <MessageCircle className="w-4 h-4 text-slate-950" />
                 <span>Inquire on WhatsApp</span>
               </a>
 
@@ -54,7 +54,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onProceedToInquiry }) =>
                 <Link
                   to="/cart"
                   onClick={closeCart}
-                  className="py-2 px-3 border border-brand-sand hover:bg-brand-sand-light text-brand-charcoal text-center text-xs font-semibold rounded-md transition-colors"
+                  className="py-2.5 px-3 border border-slate-200 hover:bg-slate-50 text-slate-800 text-center text-xs font-bold rounded-xl transition-colors"
                 >
                   View Details
                 </Link>
@@ -63,7 +63,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onProceedToInquiry }) =>
                     closeCart();
                     onProceedToInquiry();
                   }}
-                  className="py-2 px-3 bg-brand-primary text-white text-center text-xs font-semibold rounded-md hover:bg-brand-primary-dark transition-colors"
+                  className="py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white text-center text-xs font-bold rounded-xl transition-colors shadow-xs"
                 >
                   Submit Form
                 </button>
@@ -74,37 +74,42 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onProceedToInquiry }) =>
       }
     >
       {items.length === 0 ? (
-        <div className="py-12 text-center space-y-3">
-          <div className="w-12 h-12 mx-auto bg-brand-sand-light rounded-full flex items-center justify-center text-brand-taupe">
-            <ShoppingBag className="w-6 h-6" />
+        <div className="py-14 text-center space-y-3">
+          <div className="w-14 h-14 mx-auto bg-slate-100 rounded-2xl flex items-center justify-center text-slate-400">
+            <ShoppingBag className="w-7 h-7" />
           </div>
-          <h4 className="text-base font-bold text-brand-charcoal">
+          <h4 className="text-base font-bold text-slate-900">
             Your rental selection is empty
           </h4>
-          <p className="text-xs text-brand-charcoal/70 max-w-xs mx-auto">
-            Choose plastic chairs, tables, shamiana tents, and sound systems for your upcoming event.
+          <p className="text-xs text-slate-500 max-w-xs mx-auto leading-relaxed">
+            Choose plastic chairs, tables, shamiana tents, and sound systems for your upcoming event in {city}.
           </p>
-          <Link
-            to="/rentals"
-            onClick={closeCart}
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand-primary text-white text-xs font-bold rounded-md hover:bg-brand-primary-dark transition-colors"
-          >
-            <span>Browse Items</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+          <div className="pt-2">
+            <Link
+              to="/rentals"
+              onClick={closeCart}
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-emerald-600 text-white text-xs font-bold rounded-xl hover:bg-emerald-700 shadow-sm transition-colors"
+            >
+              <span>Browse Items</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
       ) : (
-        <div className="space-y-3 divide-y divide-brand-sand/60">
+        <div className="space-y-3 divide-y divide-slate-100">
           {items.map((item) => (
-            <div key={item.id} className="pt-3 first:pt-0 flex gap-3 items-start">
+            <div key={item.id} className="pt-3.5 first:pt-0 flex gap-3.5 items-start">
               <Link
                 to={`/rentals/${item.product.slug}`}
                 onClick={closeCart}
-                className="w-16 h-16 bg-brand-sand-light rounded-md overflow-hidden shrink-0 border border-brand-sand"
+                className="w-18 h-18 bg-slate-100 rounded-xl overflow-hidden shrink-0 border border-slate-200"
               >
                 <img
                   src={item.product.image}
                   alt={item.product.name}
+                  onError={(e) => {
+                    e.currentTarget.src = '/images/products/chairs/gold-chiavari-chair.jpg';
+                  }}
                   className="w-full h-full object-cover object-center"
                 />
               </Link>
@@ -114,27 +119,27 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onProceedToInquiry }) =>
                   <Link
                     to={`/rentals/${item.product.slug}`}
                     onClick={closeCart}
-                    className="text-xs sm:text-sm font-bold text-brand-charcoal hover:text-brand-primary transition-colors line-clamp-1"
+                    className="text-xs sm:text-sm font-bold text-slate-900 hover:text-emerald-600 transition-colors line-clamp-1"
                   >
                     {item.product.name}
                   </Link>
                   <button
                     onClick={() => removeItem(item.id)}
-                    className="text-brand-taupe hover:text-red-600 p-0.5"
+                    className="text-slate-400 hover:text-rose-600 p-0.5 rounded transition-colors"
                     aria-label={`Remove ${item.product.name}`}
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                   </button>
                 </div>
 
-                <div className="flex items-center gap-1 text-[11px] text-brand-charcoal/70">
-                  <Calendar className="w-3 h-3 text-brand-primary shrink-0" />
+                <div className="flex items-center gap-1 text-[11px] text-slate-500">
+                  <Calendar className="w-3 h-3 text-emerald-600 shrink-0" />
                   <span>
                     {formatDateDisplay(item.startDate)} ({item.rentalDays}d)
                   </span>
                 </div>
 
-                <div className="pt-1 flex items-center justify-between">
+                <div className="pt-1.5 flex items-center justify-between">
                   <QuantitySelector
                     value={item.quantity}
                     onChange={(newQty) => updateQuantity(item.id, newQty)}
@@ -142,10 +147,10 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onProceedToInquiry }) =>
                     min={item.product.minQuantity || 1}
                   />
                   <div className="text-right">
-                    <span className="text-xs font-bold text-brand-charcoal block">
+                    <span className="text-xs font-black text-slate-900 block">
                       {formatPrice(item.subtotal)}
                     </span>
-                    <span className="text-[10px] text-brand-taupe">
+                    <span className="text-[10px] text-slate-400 font-medium">
                       {formatPrice(item.unitPrice)}/{item.product.pricingUnit.replace('per ', '')}
                     </span>
                   </div>

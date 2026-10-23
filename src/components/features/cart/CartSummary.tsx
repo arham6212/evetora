@@ -29,62 +29,66 @@ export const CartSummary: React.FC<CartSummaryProps> = ({
   });
 
   return (
-    <div className="bg-white border border-brand-sand rounded-lg p-4 sm:p-5 space-y-4 shadow-subtle">
-      <h3 className="text-base font-bold text-brand-charcoal pb-2 border-b border-brand-sand flex items-center justify-between">
-        <span>Estimated Rental Bill</span>
-        <span className="text-xs font-normal text-brand-taupe">({totals.totalQuantity} items)</span>
-      </h3>
+    <div className="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-6 space-y-5 shadow-2xs">
+      <div className="pb-3 border-b border-slate-100 flex items-center justify-between">
+        <h3 className="text-base font-extrabold text-slate-900">
+          Estimated Rental Bill
+        </h3>
+        <span className="text-xs font-semibold text-slate-400">
+          ({totals.totalQuantity} items)
+        </span>
+      </div>
 
-      <div className="space-y-2 text-xs text-brand-charcoal/80">
+      <div className="space-y-2.5 text-xs text-slate-600">
         <div className="flex justify-between items-center">
-          <span className="text-brand-charcoal/70">Equipment Subtotal:</span>
-          <span className="font-bold text-brand-charcoal text-sm">
+          <span className="text-slate-500">Equipment Subtotal:</span>
+          <span className="font-extrabold text-slate-900 text-sm">
             {formatPrice(totals.subtotal)}
           </span>
         </div>
 
-        <div className="flex justify-between items-start text-brand-charcoal/70 pt-1">
-          <div className="flex items-center gap-1">
-            <Truck className="w-3.5 h-3.5 text-brand-primary" />
+        <div className="flex justify-between items-start text-slate-500 pt-0.5">
+          <div className="flex items-center gap-1.5">
+            <Truck className="w-3.5 h-3.5 text-emerald-600" />
             <span>Local Tempo Delivery:</span>
           </div>
-          <span className="text-[11px] font-semibold text-brand-primary">
+          <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">
             Confirmed in Quote
           </span>
         </div>
 
-        <div className="pt-3 border-t border-brand-sand flex justify-between items-baseline">
+        <div className="pt-3 border-t border-slate-100 flex justify-between items-baseline">
           <div>
-            <span className="text-sm font-bold text-brand-charcoal block">
+            <span className="text-sm font-extrabold text-slate-900 block">
               Estimated Total
             </span>
-            <span className="text-[10px] text-brand-taupe">
+            <span className="text-[10px] text-slate-400">
               Delivering to {city} ({pincode})
             </span>
           </div>
-          <span className="text-xl sm:text-2xl font-bold text-brand-charcoal">
+          <span className="text-2xl font-black text-slate-900">
             {formatPrice(totals.estimatedTotal)}
           </span>
         </div>
       </div>
 
-      <div className="p-2.5 bg-brand-primary-soft border border-brand-primary/20 rounded-md text-[11px] text-brand-charcoal/80 flex items-start gap-2">
-        <Info className="w-3.5 h-3.5 text-brand-primary shrink-0 mt-0.5" />
+      <div className="p-3 bg-emerald-50/70 border border-emerald-200/60 rounded-xl text-[11px] text-emerald-900 flex items-start gap-2">
+        <Info className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
         <span>
-          Final price depends on event duration and tempo delivery distance. Provider will verify stock availability.
+          Final price depends on event duration and tempo delivery distance. Provider will verify stock availability for {city}.
         </span>
       </div>
 
-      <div className="space-y-2 pt-1">
+      <div className="space-y-2.5 pt-1">
         {/* WhatsApp Direct Order Button */}
         {items.length > 0 && (
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-3 px-4 bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm font-bold rounded-md flex items-center justify-center gap-2 shadow-subtle transition-colors"
+            className="w-full py-3 px-4 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2 shadow-xs transition-colors"
           >
-            <MessageCircle className="w-4 h-4" />
+            <MessageCircle className="w-4 h-4 text-slate-950" />
             <span>Send Order on WhatsApp</span>
           </a>
         )}
@@ -94,7 +98,7 @@ export const CartSummary: React.FC<CartSummaryProps> = ({
           <button
             onClick={onProceedToInquiry}
             disabled={disabled || totals.totalQuantity === 0}
-            className="w-full py-2.5 px-4 bg-brand-primary hover:bg-brand-primary-dark text-white text-xs sm:text-sm font-bold rounded-md disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-700 active:scale-98 text-white text-xs sm:text-sm font-bold rounded-xl disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-md shadow-emerald-600/20"
           >
             Submit Rental Request Form
           </button>

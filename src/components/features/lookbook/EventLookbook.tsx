@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Camera, CheckCircle2 } from 'lucide-react';
+import { Camera, CheckCircle2, MapPin } from 'lucide-react';
 
 interface LookbookItem {
   id: string;
@@ -105,7 +105,7 @@ export const EventLookbook: React.FC = () => {
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            See Eventora Items in Real Celebrations
+            See Evento Items in Real Celebrations
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
             Real setups arranged by local tent houses across Lucknow, Jaipur, Bhopal, and Indore.
@@ -155,8 +155,9 @@ export const EventLookbook: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
 
-              <span className="absolute top-3 left-3 px-3 py-1 bg-white/90 backdrop-blur-xs text-slate-900 text-[11px] font-bold rounded-full shadow-xs">
-                📍 {item.city}
+              <span className="absolute top-3 left-3 inline-flex items-center gap-1 px-3 py-1 bg-white/90 backdrop-blur-xs text-slate-900 text-[11px] font-bold rounded-full shadow-xs">
+                <MapPin className="w-3 h-3 text-emerald-600" />
+                <span>{item.city}</span>
               </span>
 
               <div className="absolute bottom-3 left-3 right-3 text-white">
@@ -172,7 +173,7 @@ export const EventLookbook: React.FC = () => {
             {/* Rented Items Pills */}
             <div className="p-4 space-y-3 bg-white">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
-                Equipment Rented on Eventora:
+                Equipment Rented on Evento:
               </span>
               <div className="flex flex-wrap gap-1.5">
                 {item.rentedItems.map((rent, idx) => (

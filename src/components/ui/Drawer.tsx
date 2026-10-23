@@ -40,7 +40,7 @@ export const Drawer: React.FC<DrawerProps> = ({
     <div className="fixed inset-0 z-50 overflow-hidden">
       {/* Dimmed backdrop */}
       <div
-        className="fixed inset-0 bg-brand-charcoal/50 backdrop-blur-xs transition-opacity duration-300"
+        className="fixed inset-0 bg-slate-950/60 backdrop-blur-xs transition-opacity duration-300"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -50,24 +50,24 @@ export const Drawer: React.FC<DrawerProps> = ({
           position === 'right' ? 'right-0' : 'left-0'
         } max-w-full flex pl-10`}
       >
-        <div className="w-screen max-w-md sm:max-w-lg bg-brand-ivory border-l border-brand-sand shadow-floating flex flex-col justify-between">
+        <div className="w-screen max-w-md sm:max-w-lg bg-white border-l border-slate-200 shadow-2xl flex flex-col justify-between">
           {/* Drawer Header */}
-          <div className="px-6 py-5 border-b border-brand-sand/80 flex items-center justify-between bg-brand-ivory">
+          <div className="px-6 py-5 border-b border-slate-100 flex items-center justify-between bg-white">
             <div>
               {subtitle && (
-                <span className="text-[10px] tracking-widest text-brand-olive uppercase block mb-0.5 font-medium">
+                <span className="text-[11px] font-bold tracking-wider text-emerald-700 uppercase block mb-0.5">
                   {subtitle}
                 </span>
               )}
               {title && (
-                <h3 className="font-serif text-xl sm:text-2xl font-medium text-brand-charcoal">
+                <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
                   {title}
                 </h3>
               )}
             </div>
             <button
               onClick={onClose}
-              className="p-2 text-brand-charcoal/60 hover:text-brand-charcoal hover:bg-brand-sand/50 rounded-full transition-colors"
+              className="p-2 text-slate-400 hover:text-slate-800 hover:bg-slate-100 rounded-full transition-colors"
               aria-label="Close panel"
             >
               <X className="w-5 h-5" />
@@ -81,7 +81,7 @@ export const Drawer: React.FC<DrawerProps> = ({
 
           {/* Optional Drawer Footer */}
           {footer && (
-            <div className="border-t border-brand-sand/80 px-6 py-5 bg-brand-sand/20">
+            <div className="border-t border-slate-100 px-6 py-5 bg-slate-50">
               {footer}
             </div>
           )}

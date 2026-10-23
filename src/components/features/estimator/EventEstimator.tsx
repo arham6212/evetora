@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calculator, Sparkles, Check, ShoppingBag } from 'lucide-react';
+import { Calculator, Sparkles, Check, ShoppingBag, HeartHandshake, Cake, Flame, Users } from 'lucide-react';
 import { products } from '../../../data/products';
 import { useCart } from '../../../context/CartContext';
 import { formatPrice } from '../../../utils/formatters';
@@ -117,10 +117,10 @@ export const EventEstimator: React.FC = () => {
           </label>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
             {[
-              { id: 'wedding', label: 'Wedding / Haldi', icon: '💍' },
-              { id: 'birthday', label: 'Birthday Party', icon: '🎂' },
-              { id: 'puja', label: 'Puja / Religious', icon: '🪔' },
-              { id: 'family', label: 'Family Gathering', icon: '👨‍👩‍👧‍👦' },
+              { id: 'wedding', label: 'Wedding / Haldi', icon: <HeartHandshake className="w-4 h-4 text-emerald-400" /> },
+              { id: 'birthday', label: 'Birthday Party', icon: <Cake className="w-4 h-4 text-amber-400" /> },
+              { id: 'puja', label: 'Puja / Religious', icon: <Flame className="w-4 h-4 text-orange-400" /> },
+              { id: 'family', label: 'Family Gathering', icon: <Users className="w-4 h-4 text-blue-400" /> },
             ].map((evt) => (
               <button
                 key={evt.id}
@@ -131,7 +131,9 @@ export const EventEstimator: React.FC = () => {
                     : 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10'
                 }`}
               >
-                <span className="text-xl">{evt.icon}</span>
+                <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                  {evt.icon}
+                </div>
                 <span className="text-xs font-bold">{evt.label}</span>
               </button>
             ))}
