@@ -147,18 +147,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenBooking }) => {
               <div className="pt-2 flex flex-wrap items-center gap-2">
                 <span className="text-xs font-bold text-slate-400 mr-1">Popular:</span>
                 {[
-                  { label: '🪑 Chairs (from ₹10)', slug: 'chairs' },
-                  { label: '🎪 Shamiana (from ₹1,800)', slug: 'tents' },
-                  { label: '🍽️ Tables', slug: 'tables' },
-                  { label: '💡 Lights & Mic', slug: 'lighting' },
-                  { label: '🍲 Catering Degs', slug: 'crockery' },
+                  { icon: <Armchair className="w-3.5 h-3.5 text-emerald-600" />, label: 'Chairs (from ₹10)', slug: 'chairs' },
+                  { icon: <Tent className="w-3.5 h-3.5 text-emerald-600" />, label: 'Shamiana (from ₹1,800)', slug: 'tents' },
+                  { icon: <Utensils className="w-3.5 h-3.5 text-emerald-600" />, label: 'Tables', slug: 'tables' },
+                  { icon: <Lightbulb className="w-3.5 h-3.5 text-emerald-600" />, label: 'Lights & Mic', slug: 'lighting' },
+                  { icon: <CookingPot className="w-3.5 h-3.5 text-emerald-600" />, label: 'Catering Degs', slug: 'crockery' },
                 ].map((chip) => (
                   <button
                     key={chip.slug}
                     onClick={() => navigate(`/rentals?category=${chip.slug}`)}
-                    className="px-2.5 py-1 bg-white hover:bg-emerald-50 hover:border-emerald-300 border border-slate-200 rounded-full text-xs font-semibold text-slate-700 transition-all shadow-2xs"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-emerald-50 hover:border-emerald-300 border border-slate-200 rounded-full text-xs font-semibold text-slate-700 transition-all shadow-2xs"
                   >
-                    {chip.label}
+                    {chip.icon}
+                    <span>{chip.label}</span>
                   </button>
                 ))}
               </div>
@@ -192,6 +193,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenBooking }) => {
                 <img
                   src="/images/hero_indian_event.jpg"
                   alt="Neat plastic chairs and tent setup for an Indian family celebration"
+                  fetchPriority="high"
                   onError={(e) => {
                     e.currentTarget.src = '/images/products/stages/haldi-urli-ceremony-setup.jpg';
                   }}
@@ -300,9 +302,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenBooking }) => {
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-3xl p-2 bg-slate-50 rounded-xl group-hover:scale-110 transition-transform">
+                    <div className="w-11 h-11 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:bg-emerald-50 transition-all">
                       {evt.icon}
-                    </span>
+                    </div>
                     <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 group-hover:bg-emerald-100 group-hover:text-emerald-800 transition-colors">
                       {evt.badge}
                     </span>
@@ -369,7 +371,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenBooking }) => {
             Reliable Local Service
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            Why Host Families Trust Eventora
+            Why Host Families Trust Evento
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
             We eliminate the uncertainty and stress of booking tent house items.
@@ -511,7 +513,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenBooking }) => {
               <span>Select PIN or City</span>
             </button>
             <a
-              href={`https://wa.me/${siteConfig.whatsapp.number.replace(/\D/g, '')}?text=Namaste%20Eventora!%20I%20want%20to%20check%20rental%20delivery%20for%20my%20area.`}
+              href={`https://wa.me/${siteConfig.whatsapp.number.replace(/\D/g, '')}?text=Namaste%20Evento!%20I%20want%20to%20check%20rental%20delivery%20for%20my%20area.`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto px-5 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2"
@@ -530,7 +532,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenBooking }) => {
             Easy 4-Step Booking
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            How Renting Works on Eventora
+            How Renting Works on Evento
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
             No complicated paperwork or broker visits. Everything organized online in minutes.
