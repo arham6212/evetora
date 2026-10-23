@@ -9,14 +9,14 @@ export interface SortDropdownProps {
 export const SortDropdown: React.FC<SortDropdownProps> = ({ value, onChange }) => {
   return (
     <div className="flex items-center gap-2">
-      <span className="text-xs uppercase tracking-wider text-brand-taupe font-medium hidden sm:inline flex items-center gap-1">
-        <ArrowUpDown className="w-3.5 h-3.5" />
+      <span className="text-xs uppercase tracking-wider text-slate-400 font-bold hidden sm:inline flex items-center gap-1">
+        <ArrowUpDown className="w-3.5 h-3.5 text-emerald-600" />
         Sort:
       </span>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value as any)}
-        className="text-xs bg-white border border-brand-sand rounded-xs px-3 py-2 text-brand-charcoal focus:outline-none focus:border-brand-charcoal cursor-pointer font-medium"
+        className="text-xs bg-white border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none focus:border-emerald-500 cursor-pointer font-bold shadow-2xs"
       >
         <option value="recommended">Curated / Recommended</option>
         <option value="price-asc">Price: Low to High</option>

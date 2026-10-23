@@ -57,38 +57,38 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
     filters.maxPrice < 3000;
 
   return (
-    <aside className="space-y-5 text-brand-charcoal">
+    <aside className="space-y-5 text-slate-800">
       {/* Header and Reset */}
-      <div className="flex items-center justify-between pb-3 border-b border-brand-sand">
+      <div className="flex items-center justify-between pb-3 border-b border-slate-100">
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-wider text-brand-charcoal">
+          <h3 className="text-xs font-black uppercase tracking-wider text-slate-900">
             Filters
           </h3>
-          <span className="text-[11px] text-brand-taupe">{totalProducts} Items Available</span>
+          <span className="text-[11px] text-slate-400 font-medium">{totalProducts} Items Available</span>
         </div>
         {isFiltered && (
           <button
             onClick={onReset}
-            className="inline-flex items-center gap-1 text-[11px] text-brand-primary hover:underline font-semibold"
+            className="inline-flex items-center gap-1 text-xs text-emerald-600 hover:text-emerald-700 hover:underline font-bold"
           >
-            <RotateCcw className="w-3 h-3" />
+            <RotateCcw className="w-3.5 h-3.5" />
             <span>Reset</span>
           </button>
         )}
       </div>
 
       {/* Category Filter */}
-      <div className="space-y-2.5">
-        <span className="text-xs font-bold uppercase tracking-wider text-brand-charcoal block">
+      <div className="space-y-2">
+        <span className="text-xs font-bold uppercase tracking-wider text-slate-700 block">
           Category
         </span>
         <div className="space-y-1">
           <button
             onClick={() => onChange({ ...filters, category: 'all' })}
-            className={`w-full text-left text-xs py-1.5 px-2 rounded transition-colors flex items-center justify-between ${
+            className={`w-full text-left text-xs py-2 px-3 rounded-xl transition-all flex items-center justify-between ${
               filters.category === 'all'
-                ? 'bg-brand-primary text-white font-semibold'
-                : 'text-brand-charcoal hover:bg-brand-sand-light'
+                ? 'bg-emerald-600 text-white font-bold shadow-xs'
+                : 'text-slate-700 hover:bg-slate-50'
             }`}
           >
             <span>All Categories</span>
@@ -99,14 +99,14 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
               <button
                 key={cat.id}
                 onClick={() => handleCategorySelect(cat.slug)}
-                className={`w-full text-left text-xs py-1.5 px-2 rounded transition-colors flex items-center justify-between ${
+                className={`w-full text-left text-xs py-2 px-3 rounded-xl transition-all flex items-center justify-between ${
                   active
-                    ? 'bg-brand-primary text-white font-semibold'
-                    : 'text-brand-charcoal hover:bg-brand-sand-light'
+                    ? 'bg-emerald-600 text-white font-bold shadow-xs'
+                    : 'text-slate-700 hover:bg-slate-50'
                 }`}
               >
                 <span>{cat.name}</span>
-                <span className={`text-[10px] ${active ? 'text-white/80' : 'text-brand-taupe'}`}>
+                <span className={`text-[10px] font-semibold ${active ? 'text-white/80' : 'text-slate-400'}`}>
                   {cat.itemCount}
                 </span>
               </button>
@@ -116,9 +116,9 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
       </div>
 
       {/* Event Occasion Filter */}
-      <div className="space-y-2.5 pt-3 border-t border-brand-sand">
-        <span className="text-xs font-bold uppercase tracking-wider text-brand-charcoal block">
-          By Event Type
+      <div className="space-y-2 pt-3 border-t border-slate-100">
+        <span className="text-xs font-bold uppercase tracking-wider text-slate-700 block">
+          By Occasion
         </span>
         <div className="space-y-1">
           {eventTypes.map((et) => {
@@ -127,10 +127,10 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
               <button
                 key={et.value}
                 onClick={() => handleEventTypeSelect(et.value)}
-                className={`w-full text-left text-xs py-1.5 px-2 rounded transition-colors flex items-center justify-between ${
+                className={`w-full text-left text-xs py-2 px-3 rounded-xl transition-all flex items-center justify-between ${
                   active
-                    ? 'bg-brand-primary-soft text-brand-primary font-bold border border-brand-primary/30'
-                    : 'text-brand-charcoal hover:bg-brand-sand-light'
+                    ? 'bg-emerald-50 text-emerald-900 font-bold border border-emerald-300 shadow-2xs'
+                    : 'text-slate-700 hover:bg-slate-50'
                 }`}
               >
                 <span>{et.label}</span>
@@ -141,12 +141,12 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
       </div>
 
       {/* Price Range Filter */}
-      <div className="space-y-2.5 pt-3 border-t border-brand-sand">
+      <div className="space-y-2.5 pt-3 border-t border-slate-100">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-bold uppercase tracking-wider text-brand-charcoal">
-            Max Price
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
+            Max Daily Price
           </span>
-          <span className="text-xs font-bold text-brand-primary">
+          <span className="text-xs font-black text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">
             {formatPrice(filters.maxPrice)}
           </span>
         </div>
@@ -157,9 +157,9 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
           step={20}
           value={filters.maxPrice}
           onChange={handleMaxPriceChange}
-          className="w-full accent-brand-primary cursor-pointer"
+          className="w-full accent-emerald-600 cursor-pointer"
         />
-        <div className="flex justify-between text-[10px] text-brand-taupe">
+        <div className="flex justify-between text-[10px] text-slate-400 font-medium">
           <span>{formatPrice(10)}</span>
           <span>{formatPrice(3000)}+</span>
         </div>
