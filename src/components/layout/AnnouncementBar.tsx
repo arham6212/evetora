@@ -20,7 +20,7 @@ export const AnnouncementBar: React.FC = () => {
         {/* Right: Quick actions */}
         <div className="flex items-center gap-3">
           <a
-            href={`https://wa.me/${siteConfig.whatsapp.number.replace(/\D/g, '')}?text=Namaste%20Eventora!%20I%20have%20an%20event%20rental%20inquiry.`}
+            href={`https://wa.me/${siteConfig.whatsapp.number.replace(/\D/g, '')}?text=Namaste%20Evento!%20I%20have%20an%20event%20rental%20inquiry.`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-emerald-300 hover:text-white font-medium transition-colors"

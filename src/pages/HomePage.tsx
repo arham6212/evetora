@@ -9,6 +9,19 @@ import {
   ShieldCheck,
   Sparkles,
   Star,
+  Armchair,
+  Tent,
+  Utensils,
+  Lightbulb,
+  CookingPot,
+  HeartHandshake,
+  Cake,
+  Flame,
+  Gem,
+  Users,
+  GraduationCap,
+  Store,
+  Handshake,
 } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 import { categories } from '../data/categories';
@@ -31,14 +44,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenBooking }) => {
   const popularProducts = products.filter((p) => p.featured).slice(0, 8);
 
   const eventPlanningTypes = [
-    { id: 'wedding', title: 'Wedding & Haldi', hindi: 'शादी व हल्दी', icon: '💍', desc: 'Shamiana, banquet chairs, yellow drapes & red carpet', badge: 'High Demand' },
-    { id: 'birthday', title: 'Birthday Party', hindi: 'जन्मदिन पार्टी', icon: '🎂', desc: 'Balloon arch ring, snack tables, chairs & fairy lights', badge: 'Popular' },
-    { id: 'puja', title: 'Puja & Jagran', hindi: 'पूजा व जागरण', icon: '🪔', desc: 'Cotton floor durries, wooden chowkis, brass diyas & mic', badge: 'Essential' },
-    { id: 'engagement', title: 'Engagement / Roka', hindi: 'सगाई / रोका', icon: '✨', desc: 'VIP stage sofa, covered chairs & buffet food counters', badge: 'Trending' },
-    { id: 'family', title: 'Family Gathering', hindi: 'पारिवारिक समारोह', icon: '👨‍👩‍👧‍👦', desc: 'Round dining tables, plastic chairs & water coolers', badge: 'Affordable' },
-    { id: 'school', title: 'School / College Event', hindi: 'वार्षिक उत्सव', icon: '🎓', desc: 'Raised wooden stage, backdrop curtain & PA speaker', badge: 'Bulk' },
-    { id: 'shop', title: 'Shop Opening', hindi: 'दुकान उद्घाटन', icon: '🏪', desc: 'Entrance red carpet, VIP chairs, gazebo canopy & ribbon setup', badge: 'Commercial' },
-    { id: 'community', title: 'Community Function', hindi: 'सोसाइटी सभा', icon: '🤝', desc: 'Folding chairs, floodlights, stage decks & mic sets', badge: 'Custom' },
+    { id: 'wedding', title: 'Wedding & Haldi', hindi: 'शादी व हल्दी', icon: <HeartHandshake className="w-6 h-6 text-emerald-600" />, desc: 'Shamiana, banquet chairs, yellow drapes & red carpet', badge: 'High Demand' },
+    { id: 'birthday', title: 'Birthday Party', hindi: 'जन्मदिन पार्टी', icon: <Cake className="w-6 h-6 text-amber-500" />, desc: 'Balloon arch ring, snack tables, chairs & fairy lights', badge: 'Popular' },
+    { id: 'puja', title: 'Puja & Jagran', hindi: 'पूजा व जागरण', icon: <Flame className="w-6 h-6 text-amber-600" />, desc: 'Cotton floor durries, wooden chowkis, brass diyas & mic', badge: 'Essential' },
+    { id: 'engagement', title: 'Engagement / Roka', hindi: 'सगाई / रोका', icon: <Gem className="w-6 h-6 text-teal-600" />, desc: 'VIP stage sofa, covered chairs & buffet food counters', badge: 'Trending' },
+    { id: 'family', title: 'Family Gathering', hindi: 'पारिवारिक समारोह', icon: <Users className="w-6 h-6 text-blue-600" />, desc: 'Round dining tables, plastic chairs & water coolers', badge: 'Affordable' },
+    { id: 'school', title: 'School / College Event', hindi: 'वार्षिक उत्सव', icon: <GraduationCap className="w-6 h-6 text-indigo-600" />, desc: 'Raised wooden stage, backdrop curtain & PA speaker', badge: 'Bulk' },
+    { id: 'shop', title: 'Shop Opening', hindi: 'दुकान उद्घाटन', icon: <Store className="w-6 h-6 text-orange-600" />, desc: 'Entrance red carpet, VIP chairs, gazebo canopy & ribbon setup', badge: 'Commercial' },
+    { id: 'community', title: 'Community Function', hindi: 'सोसाइटी सभा', icon: <Handshake className="w-6 h-6 text-emerald-700" />, desc: 'Folding chairs, floodlights, stage decks & mic sets', badge: 'Custom' },
   ];
 
   const testimonials = [

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Search, ShoppingBag, Menu, X, MapPin, ChevronDown, Phone } from 'lucide-react';
+import { Search, ShoppingBag, Menu, X, MapPin, ChevronDown, Phone, Armchair, Tent, Utensils, Lightbulb } from 'lucide-react';
 import { siteConfig } from '../../data/siteConfig';
 import { useCart } from '../../context/CartContext';
 import { useLocationContext } from '../../context/LocationContext';
@@ -165,27 +165,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
         <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-0.5">
           <Link
             to="/rentals?category=chairs"
-            className="shrink-0 px-2.5 py-1 bg-slate-100 hover:bg-slate-200/80 rounded-full text-slate-700 font-medium text-[11px]"
+            className="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 bg-slate-100 hover:bg-slate-200/80 rounded-full text-slate-700 font-semibold text-[11px]"
           >
-            🪑 Chairs
+            <Armchair className="w-3 h-3 text-emerald-600" />
+            <span>Chairs</span>
           </Link>
           <Link
             to="/rentals?category=tents"
-            className="shrink-0 px-2.5 py-1 bg-slate-100 hover:bg-slate-200/80 rounded-full text-slate-700 font-medium text-[11px]"
+            className="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 bg-slate-100 hover:bg-slate-200/80 rounded-full text-slate-700 font-semibold text-[11px]"
           >
-            🎪 Shamiana
+            <Tent className="w-3 h-3 text-emerald-600" />
+            <span>Shamiana</span>
           </Link>
           <Link
             to="/rentals?category=tables"
-            className="shrink-0 px-2.5 py-1 bg-slate-100 hover:bg-slate-200/80 rounded-full text-slate-700 font-medium text-[11px]"
+            className="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 bg-slate-100 hover:bg-slate-200/80 rounded-full text-slate-700 font-semibold text-[11px]"
           >
-            🍽️ Tables
+            <Utensils className="w-3 h-3 text-emerald-600" />
+            <span>Tables</span>
           </Link>
           <Link
             to="/rentals?category=lighting"
-            className="shrink-0 px-2.5 py-1 bg-slate-100 hover:bg-slate-200/80 rounded-full text-slate-700 font-medium text-[11px]"
+            className="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 bg-slate-100 hover:bg-slate-200/80 rounded-full text-slate-700 font-semibold text-[11px]"
           >
-            💡 Lights
+            <Lightbulb className="w-3 h-3 text-emerald-600" />
+            <span>Lights</span>
           </Link>
         </div>
       </div>

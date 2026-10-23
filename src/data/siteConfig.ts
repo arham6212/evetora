@@ -12,12 +12,12 @@ export const popularCities = [
 ];
 
 export const siteConfig = {
-  brandName: 'Eventora',
-  tagline: 'Everything You Need for Your Event, on Rent',
+  brandName: 'Evento',
+  tagline: 'Event Furniture, Tents & Decoration Rentals',
   eyebrow: 'AFFORDABLE LOCAL EVENT RENTALS',
-  heroHeadline: 'Everything You Need for Your Event, on Rent',
+  heroHeadline: 'Rent Everything for Your Event, Delivered & Set Up',
   heroDescription:
-    'Chairs, tables, tents, curtains, and lighting for weddings, birthday parties, pujas, and family celebrations across your city.',
+    'Nilkamal chairs, shamianas, buffet tables, sound systems & Haldi decor for weddings, birthdays, pujas, and local functions in your city.',
   currency: {
     symbol: '₹',
     code: 'INR',
@@ -29,7 +29,7 @@ export const siteConfig = {
   },
   contact: {
     phone: '+91 98765 43210',
-    email: 'support@eventora.in',
+    email: 'support@evento.in',
     hours: '8:00 AM – 9:30 PM (Mon – Sun)',
     address: 'Near Central Mandi Chowk, Sector 4, Service Hub',
   },
@@ -37,6 +37,6 @@ export const siteConfig = {
     badge: 'DEMO CATALOGUE',
     shortNote: 'Approximate rental rates. Final cost depends on quantity, delivery distance & setup.',
     fullNotice:
-      'Eventora is demonstrated here as an interactive local event rental platform for small and medium Indian cities. Prices, equipment availability, and delivery charges are realistic demonstration estimates.',
+      'Evento is demonstrated here as an interactive local event rental platform for small and medium Indian cities. Prices, equipment availability, and delivery charges are realistic demonstration estimates.',
   },
 };

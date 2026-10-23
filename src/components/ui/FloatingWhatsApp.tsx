@@ -5,7 +5,7 @@ import { siteConfig } from '../../data/siteConfig';
 export const FloatingWhatsApp: React.FC = () => {
   const [showTooltip, setShowTooltip] = useState(true);
 
-  const whatsappUrl = `https://wa.me/${siteConfig.whatsapp.number.replace(/\D/g, '')}?text=Namaste%20Eventora!%20I%20need%20help%20with%20event%20equipment%20rental.`;
+  const whatsappUrl = `https://wa.me/${siteConfig.whatsapp.number.replace(/\D/g, '')}?text=Namaste%20Evento!%20I%20need%20help%20with%20event%20equipment%20rental.`;
 
   return (
     <div className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-40 flex items-end flex-col gap-2 pointer-events-none">
@@ -34,7 +34,7 @@ export const FloatingWhatsApp: React.FC = () => {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat with Eventora on WhatsApp"
+        aria-label="Chat with Evento on WhatsApp"
         className="w-13 h-13 sm:w-14 sm:h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all pointer-events-auto group relative"
       >
         <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-amber-400 border-2 border-white rounded-full" />

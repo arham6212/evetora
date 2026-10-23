@@ -15,7 +15,7 @@ export interface WhatsAppInquiryData {
 export const generateWhatsAppLink = (data: WhatsAppInquiryData): string => {
   const cleanNumber = siteConfig.whatsapp.number.replace(/\D/g, '');
 
-  let text = `Namaste Eventora! 🙏\nI want to inquire about renting equipment for an event:`;
+  let text = `Namaste Evento! 🙏\nI want to inquire about renting equipment for an event:`;
 
   if (data.eventType) {
     text += `\n*Event:* ${data.eventType.toUpperCase()}`;

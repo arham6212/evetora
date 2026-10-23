@@ -87,7 +87,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/about" className="hover:text-emerald-400 transition-colors">
-                  About Eventora
+                  About Evento
                 </Link>
               </li>
               <li>
